@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CarRental.Dtos.DtosForRentals.RentalDto>
+
+@{
+	ViewData["Title"] = "Wszystkie wypożyczenia";
+}
+
+<h1>Wszystkie wypożyczenia</h1>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Samochód:
+			</th>
+			<th>
+				Data Rozpoczęcia:
+			</th>
+			<th>
+				Data zakończenia:
+			</th>
+			<th>
+				Cena:
+			</th>
+			<th>
+				Klient:
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					<p>
+						<label>Nazwa:</label>
+						@Html.DisplayFor(modelItem => item.Car.Name)
+					</p>
+					<p>
+						<label>Cena dzienna:</label>
+						@Html.DisplayFor(model => item.Car.DailyPrice)
+					</p>
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.StartDate.Date)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.EndDate.Date)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Price)
+				</td>
+				<td>
+					<p>
+						<label>Imie:</label>
+						@Html.DisplayFor(modelItem => item.Client.Name)
+					</p>
+					<p>
+						<label>Nazwisko:</label>
+						@Html.DisplayFor(modelItem => item.Client.LastName)
+					</p>
+					<p>
+						<label>Email:</label>
+						@Html.DisplayFor(modelItem => item.Client.Email)
+					</p>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<div>
+	<a class="nav-link text-dark" asp-area="" asp-controller="newcar" asp-action="Index">Dodaj samochód</a>
+</div>
