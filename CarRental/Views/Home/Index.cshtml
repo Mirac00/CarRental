@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CarRental.Dtos.DtosForCars.CarDto>
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Witamy w naszej wypożyczalni samochodów</h1>
+	<p>Zapoznaj się z naszą ofertą.</p>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Model:
+			</th>
+			<th>
+				Opis:
+			</th>
+			<th>
+				Cena za dzień:
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(model => item.Description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DailyPrice)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
